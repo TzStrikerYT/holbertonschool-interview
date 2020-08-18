@@ -86,9 +86,9 @@ void stabilizator(int grid1[3][3], int grid2[3][3])
 			{
 				if (i - 1 >= 0)/* Up */
 					grid2[i - 1][j] += 1;
-					
+
 				if (i + 1 <= 2)/* Down */
-					grid2[i + 1][j] += 1;	
+					grid2[i + 1][j] += 1;
 
 				if (j - 1 >= 0)/* Left*/
 					grid2[i][j - 1] += 1;

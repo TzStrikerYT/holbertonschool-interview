@@ -43,8 +43,8 @@ int checker_estable(int grid1[3][3])
 
 /**
  * sum_grid - sum two sandpiles
- * @grid1: bidimensional array
- * @grid2: bidimensional array
+ * @grid1: first bidimensional array
+ * @grid2: second bidimensional array
  * Return: void statement
  */
 void sum_grid(int grid1[3][3], int grid2[3][3])
@@ -62,8 +62,8 @@ void sum_grid(int grid1[3][3], int grid2[3][3])
 
 /**
  * stabilizator - make that sanpile will be stable
- * @grid1: bidimensional array
- * @grid2: bidimensional array
+ * @grid1: first bidimensional array
+ * @grid2: second bidimensional array
  * Return: void statement
  */
 void stabilizator(int grid1[3][3], int grid2[3][3])

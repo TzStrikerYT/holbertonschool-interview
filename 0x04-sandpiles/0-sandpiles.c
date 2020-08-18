@@ -1,9 +1,9 @@
 #include "sandpiles.h"
 
 /**
- * _print_grid - the a grid
- * @grid: grid to print
- * Return: Nothing
+ * _print_grid - final grid result
+ * @grid: final result of the grid step
+ * Return: void statement
  */
 void _print_grid(int grid[3][3])
 {
@@ -23,8 +23,8 @@ void _print_grid(int grid[3][3])
 
 /**
  * checker_estable - verificate if the sandpile is stable
- * @grid1: Sandpile to check
- * Return: 1 if not stable, 0 if is it.
+ * @grid1: array to check
+ * Return: 1 on error, 0 if is stable array
  */
 int checker_estable(int grid1[3][3])
 {
@@ -43,9 +43,9 @@ int checker_estable(int grid1[3][3])
 
 /**
  * sum_grid - sum two sandpiles
- * @grid1: The first grid to sum
- * @grid2: The second grid to sum
- * Return: Nothing
+ * @grid1: first bidimensional array
+ * @grid2: second bidimensional array
+ * Return: void statement
  */
 void sum_grid(int grid1[3][3], int grid2[3][3])
 {
@@ -61,15 +61,15 @@ void sum_grid(int grid1[3][3], int grid2[3][3])
 }
 
 /**
- * stabilizator - make stable the sandpile
- * @grid1: The grid to stabilizate.
- * @grid2: Helper grid
- * Return: Nothing
+ * stabilizator - make that sanpile will be stable
+ * @grid1: first bidimensional array
+ * @grid2: second bidimensional array
+ * Return: void statement
  */
 void stabilizator(int grid1[3][3], int grid2[3][3])
 {
 	int i, j;
-    /* Convert the second grid in 0 to save the changes of grid1*/
+
 	for (i = 0; i < 3; i++)
 	{
 		for (j = 0; j < 3; j++)
@@ -78,23 +78,22 @@ void stabilizator(int grid1[3][3], int grid2[3][3])
 		}
 	}
 
-    /* Make the sum by slot */
 	for (i = 0; i < 3; i++)
 	{
 		for (j = 0; j < 3; j++)
 		{
 			if (grid1[i][j] >= 4)
 			{
-				if (i - 1 >= 0)/* UP */
+				if (i - 1 >= 0)/* Up */
 					grid2[i - 1][j] += 1;
+					
+				if (i + 1 <= 2)/* Down */
+					grid2[i + 1][j] += 1;	
 
-				if (j - 1 >= 0)/* LEFT */
+				if (j - 1 >= 0)/* Left*/
 					grid2[i][j - 1] += 1;
 
-				if (i + 1 <= 2)/* BOTTOM */
-					grid2[i + 1][j] += 1;
-
-				if (j + 1 <= 2)/* RIGHT */
+				if (j + 1 <= 2)/* Rigth */
 					grid2[i][j + 1] += 1;
 
 				grid1[i][j] -= 4;
@@ -106,10 +105,10 @@ void stabilizator(int grid1[3][3], int grid2[3][3])
 }
 
 /**
- * sandpiles_sum - sum grid and return and stable grid
- * @grid1: First grid and printed
- * @grid2: Grid to make operations
- * Return: Nothing
+ * sandpiles_sum - sum a grid and return an stable grid
+ * @grid1: First bidimensinal array
+ * @grid2: second bidimensinal array
+ * Return: void statement
  */
 void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 {

@@ -56,7 +56,7 @@ int is_palindrome(listint_t **head)
 
 	value = recursive(head, &tmp);
 
-	if (!head)
+	if (*head == NULL)
 		return (1);
 
 	if (!value)

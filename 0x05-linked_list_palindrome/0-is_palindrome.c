@@ -54,13 +54,13 @@ int is_palindrome(listint_t **head)
 
 	tmp = *head;
 
-	value = recursive(head, &tmp);
-
 	if (*head == NULL)
-		return (1);
+                return (1);
 
-	if (head == NULL)
-		return (0);
+        if (head == NULL)
+                return (0);
+
+	value = recursive(head, &tmp);
 
 	if (!value)
 		return (0);

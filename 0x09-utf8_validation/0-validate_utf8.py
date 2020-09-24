@@ -8,23 +8,24 @@ def validUTF8(data):
     A character in UTF-8 can be 1 to 4 bytes long
     The data set can contain multiple characters
     """
-    counter = 0
-    firstValidation = 1 << 7
-    secondValidation = 1 << 6
+    countBytes = 0
+    oneVer = 1 << 7
+    secondVer = 1 << 6
 
     for i in data:
         mask_n_byte = 1 << 7
-        if counter == 0:
+        if countBytes == 0:
             while mask_n_byte & i:
-                counter += 1
+                countBytes += 1
                 mask_n_byte = mask_n_byte >> 1
-            if counter == 0:
+            if countBytes == 0:
                 continue
-            if counter == 1 or counter > 4:
+            if countBytes == 1 or countBytes > 4:
                 return False
         else:
-            if not (i & firstValidation and not (i & secondValidation)):
+            if not (i & oneVer and not (i & secondVer)):
                 return False
-        counter -= 1
-    if counter == 0:
+        countBytes -= 1
+    if countBytes == 0:
         return True
+    return False

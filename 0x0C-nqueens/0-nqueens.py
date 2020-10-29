@@ -1,21 +1,21 @@
 #!/usr/bin/python3
-""" nQueens project"""
 import sys
 
 
 def nqueens(n):
-    """ This function should be resolve the problem of n queens in a chest table with size n * n """
-
+    """ The N queens puzzle is the challenge
+            of placing N non-attacking queens on an N×N chessboard
+    """
     def nqueensv2(queens, cord_dif, cord_sum):
-        """ Recursive function """
+        """ Recursive function
+        """
         p = len(queens)
         if p == n:
             result.append(queens)
             return None
         for q in range(n):
-            if q not in queens and p - q not in cord_dif and p + q not in cord_sum:
+            if q not in queens and p-q not in cord_dif and p+q not in cord_sum:
                 nqueensv2(queens + [q], cord_dif + [p - q], cord_sum + [p + q])
-
     result = []
     final_result = []
     nqueensv2([], [], [])
@@ -31,17 +31,12 @@ if __name__ == '__main__':
     if len(sys.argv) != 2:
         print("Usage: nqueens N")
         exit(1)
-
-    num = sys.argv[1]
-
     try:
-        num = int(num)
-    except ValueError:
+        n = int(sys.argv[1])
+    except:
         print("N must be a number")
         exit(1)
-
-    if num < 4:
+    if int(sys.argv[1]) < 4:
         print("N must be at least 4")
         exit(1)
-
-    nqueens(num)
+    nqueens(n)

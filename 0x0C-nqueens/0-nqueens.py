@@ -3,10 +3,10 @@
 import sys
 
 
-def nQueens(n):
+def nqueens(n):
     """ This function should be resolve the problem of n queens in a chest table with size n * n """
 
-    def nQueensV2(queens, cord_dif, cord_sum):
+    def nqueensv2(queens, cord_dif, cord_sum):
         """ Recursive function """
         p = len(queens)
         if p == n:
@@ -14,11 +14,11 @@ def nQueens(n):
             return None
         for q in range(n):
             if q not in queens and p - q not in cord_dif and p + q not in cord_sum:
-                nQueensV2(queens + [q], cord_dif + [p - q], cord_sum + [p + q])
+                nqueensv2(queens + [q], cord_dif + [p - q], cord_sum + [p + q])
 
     result = []
     final_result = []
-    nQueensV2([], [], [])
+    nqueensv2([], [], [])
     for row in result:
         for i, col in enumerate(row):
             coord = [i, col]
@@ -44,4 +44,4 @@ if __name__ == '__main__':
         print("N must be at least 4")
         sys.exit(1)
 
-    nQueens(num)
+    nqueens(num)

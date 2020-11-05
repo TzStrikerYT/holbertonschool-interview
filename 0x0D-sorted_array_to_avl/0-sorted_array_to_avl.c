@@ -5,10 +5,10 @@
  * @array: poitnter to array
  * @start: pointer to start
  * @end: pointer to end
- * @p_node: parent node
+ * @parent: parent node
  * Return: pointer to header
  **/
-avl_t *bisearch(int *array, int start, int end, avl_t *p_node)
+avl_t *bisearch(int *array, int start, int end, avl_t *parent)
 {
 	int middle;
 	avl_t *node;
@@ -23,7 +23,7 @@ avl_t *bisearch(int *array, int start, int end, avl_t *p_node)
 		return (NULL);
 
 	node->n = array[middle];
-	node->p_node = p_node;
+	node->parent = parent;
 	node->left = bisearch(array, start, middle - 1, node);
 	node->right = bisearch(array, middle + 1, end, node);
 	return (node);

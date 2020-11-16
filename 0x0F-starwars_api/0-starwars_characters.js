@@ -18,7 +18,6 @@ function characterRequest (idx, urlChar, characters, limit) {
   if (idx === limit) {
     return;
   }
-  
   request(urlChar, function (error, response, body) {
     if (!error) {
       const response = JSON.parse(body);

@@ -14,16 +14,16 @@ request(url, (error, response, body) => {
   }
 });
 
-function characterRequest (idx, urlChar, characters, limit) {
-  if (idx === limit) {
+function characterRequest (charIndex, urlChar, characters, limit) {
+  if (charIndex === limit) {
     return;
   }
   request(urlChar, function (error, response, body) {
     if (!error) {
       const response = JSON.parse(body);
       console.log(response.name);
-      idx++;
-      characterRequest(idx, characters[idx], characters, limit);
+      charIndex++;
+      characterRequest(charIndex, characters[charIndex], characters, limit);
     } else {
       console.error('error:', error);
     }

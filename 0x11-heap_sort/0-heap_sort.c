@@ -49,10 +49,12 @@ void heapify(int arr[], int n, int i, size_t size)
 
 void heap_sort(int arr[], size_t size)
 {
-	for (int i = size / 2 - 1; i >= 0; i--)
+	int i = 0;
+
+	for (i = size / 2 - 1; i >= 0; i--)
 		heapify(arr, size, i, size);
 
-	for (int i = size - 1; i >= 0; i--)
+	for (i = size - 1; i >= 0; i--)
 	{
 		swap(&arr[0], &arr[i]);
 		if (i != 0)
